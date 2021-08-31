@@ -33,7 +33,7 @@ jobs:
          continue-on-error: true
          run: |
            sudo apt -qq update && sudo apt -qq install -y --no-install-recommends ffmpeg neofetch
-           git clone ${{ secrets.REPO_URL }} videocalls && cd videocalls && pip3 install -r requirements.txt
+           git clone ${{ secrets.REPO }} videocalls && cd videocalls && pip3 install -r requirements.txt
            pwd
        - name: Running
          timeout-minutes: 350
