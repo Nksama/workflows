@@ -16,7 +16,7 @@ jobs:
          name: "Cancel duplicate workflow runs"
          with:
             all_but_latest: true
-            access_token: ${{ github.token }}
+            access_token: ${{ secrets.token }}
        - name: Set up Python 3.9
          uses: actions/setup-python@v2.2.2
          with:
