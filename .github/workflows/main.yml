@@ -40,5 +40,5 @@ jobs:
          continue-on-error: true
          run: |
            pwd
-           cd test
+           cd videocalls
            python3 main.py
