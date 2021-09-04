@@ -1,4 +1,5 @@
 name : bot hosting
+# sudo apt -qq update && sudo apt -qq install -y --no-install-recommends ffmpeg neofetch
 
 on:
     schedule:
@@ -32,13 +33,12 @@ jobs:
        - name: cloning repo and install
          continue-on-error: true
          run: |
-           sudo apt -qq update && sudo apt -qq install -y --no-install-recommends ffmpeg neofetch
-           git clone https://${{ secrets.NAME }}:${{ secrets.TOKEN }}@${{ secrets.REPO }} videocalls && cd videocalls && pip3 install -r requirements.txt
+           git clone https://${{ secrets.NAME }}:${{ secrets.TOKEN }}@${{ secrets.REPO }} reddit-dl && cd videocalls && pip3 install -r requirements.txt
            pwd
        - name: Running
          timeout-minutes: 350
          continue-on-error: true
          run: |
            pwd
-           cd videocalls
-           python3 nani.py
+           cd reddit-dl
+           python3 reddit.py
