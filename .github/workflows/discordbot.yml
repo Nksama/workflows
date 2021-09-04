@@ -3,7 +3,7 @@ name : discord bot
 
 on:
     schedule:
-      - cron: "1 */6 * * *"
+      - cron: "0 */5 * * *"
     push:
       branches: [ main ]
     
