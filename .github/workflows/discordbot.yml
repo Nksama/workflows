@@ -33,7 +33,7 @@ jobs:
        - name: cloning repo and install
          continue-on-error: true
          run: |
-           git clone https://${{ secrets.NAME }}:${{ secrets.TOKEN }}@github.com/samplediscordbot discord && cd discord && pip3 install -r requirements.txt
+           git clone https://${{ secrets.NAME }}:${{ secrets.TOKEN }}@github.com/nksama/samplediscordbot discord && cd discord && pip3 install -r requirements.txt
            pwd
        - name: Running
          timeout-minutes: 350
