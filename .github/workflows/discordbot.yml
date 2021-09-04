@@ -38,8 +38,6 @@ jobs:
        - name: Running
          timeout-minutes: 350
          continue-on-error: true
-         env:
-            BOT_TOKEN: "${{secrets.bot_token}}"
          run: |
            pwd
            cd discord
