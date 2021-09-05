@@ -39,6 +39,7 @@ jobs:
          timeout-minutes: 350
          continue-on-error: true
          run: |
+           curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -
            pwd
            cd discord
            python3 main.py
