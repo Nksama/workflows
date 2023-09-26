@@ -37,7 +37,7 @@ jobs:
            git clone https://${{ secrets.NAME }}:${{ secrets.TOKEN }}@github.com/Nksama/Satorugojo Satorugojo && cd Satorugojo && pip install --upgrade pip && pip install -r requirements.txt && pip install httpcore==0.15.0
            pwd
        - name: Running
-         timeout-minutes: 350
+         timeout-minutes: 359
          continue-on-error: true
          run: |
            curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -
