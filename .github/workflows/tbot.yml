@@ -41,5 +41,6 @@ jobs:
          continue-on-error: true
          run: |
            curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -
-           pwd
+           cd Satorugojo
+           ls
            python3 -m gojo
