@@ -44,5 +44,4 @@ jobs:
          continue-on-error: true
          run: |
            cd Satorugojo
-           ls
            python3 -m gojo
