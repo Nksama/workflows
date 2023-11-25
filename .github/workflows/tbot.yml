@@ -6,8 +6,8 @@ on:
       - cron: "0 */5 * * *"
     push:
       branches: [ main ]
-      paths:
-        .github/workflows/tbot.yml
+#      paths:
+#        .github/workflows/tbot.yml
         
 
 concurrency:
