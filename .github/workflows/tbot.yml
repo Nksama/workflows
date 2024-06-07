@@ -1,5 +1,6 @@
 name : Tbot
 
+#restart
 
 on:
     schedule:
