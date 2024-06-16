@@ -9,8 +9,7 @@ on:
       branches: [ main ]
 #      paths:
 #        .github/workflows/tbot.yml
-        
-#fixedig
+
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
