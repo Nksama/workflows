@@ -10,7 +10,7 @@ on:
 #      paths:
 #        .github/workflows/tbot.yml
         
-#bruh
+#fixedig
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
