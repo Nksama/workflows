@@ -39,6 +39,8 @@ jobs:
        - name: Running
          timeout-minutes: 359
          continue-on-error: true
+         env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
          run: |
            cd pbot
            python3 main.py
