@@ -34,7 +34,7 @@ jobs:
        - name: cloning repo and install
          continue-on-error: true
          run: |
-           git clone https://${{ secrets.NAME }}:${{ secrets.TOKEN }}@github.com/Nksama/dynastypostbot pbot && cd pbot && pip install --upgrade pip && pip install -r requirements.txt
+           git clone https://${{ secrets.TOKEN }}@github.com/Nksama/dynastypostbot pbot && cd pbot && pip install --upgrade pip && pip install -r requirements.txt
            pwd
        - name: Running
          timeout-minutes: 359
