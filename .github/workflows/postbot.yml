@@ -1,0 +1,39 @@
+name : postbot
+
+#restart
+
+on:
+    schedule:
+      - cron: "0 */5 * * *"
+    push:
+      branches: [ main ]
+
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+       - uses: actions/checkout@v2
+       
+       - name: Set up Python 3.9
+         uses: actions/setup-python@v2.2.2
+         with:
+           python-version: 3.9
+
+       - name: cloning repo and install
+         continue-on-error: true
+         run: |
+           git clone https://${{ secrets.NAME }}:${{ secrets.TOKEN }}@github.com/Nksama/dynastypostbot pbot && cd pbot && pip install --upgrade pip && pip install -r requirements.txt
+           pwd
+       - name: Running
+         timeout-minutes: 359
+         continue-on-error: true
+         run: |
+           cd pbot
+           python3 main.py
