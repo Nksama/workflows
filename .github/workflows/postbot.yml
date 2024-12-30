@@ -1,13 +1,11 @@
-name : postbot
+name : Tbot
 
-#restart
 
 on:
     schedule:
       - cron: "0 */5 * * *"
     push:
       branches: [ main ]
-
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -26,6 +24,13 @@ jobs:
          with:
            python-version: 3.9
 
+       - name: init
+         continue-on-error: true
+         run: |
+           git config --global user.name ${{ secrets.NAME }}
+           git config --global user.email ${{ secrets.MAIL }}
+           git config --global credential.helper store
+           echo "https://${{ secrets.NAME }}:${{ secrets.TOKEN }}@github.com" > ~/.git-credentials
        - name: cloning repo and install
          continue-on-error: true
          run: |
