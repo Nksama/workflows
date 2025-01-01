@@ -2,7 +2,9 @@ name: pbot
 
 on:
   repository_dispatch:
-    types: [update]
+    types: [update]  # Triggered by webhook in the private repo
+  push:
+    branches: [main]  # Optional: for changes in the public repo
   schedule:
     - cron: "0 */5 * * *"
 
@@ -22,21 +24,22 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: init
-        continue-on-error: true
+      - name: Initialize Git Credentials
         run: |
           git config --global user.name ${{ secrets.NAME }}
           git config --global user.email ${{ secrets.MAIL }}
           git config --global credential.helper store
           echo "https://${{ secrets.NAME }}:${{ secrets.TOKEN }}@github.com" > ~/.git-credentials
-      - name: cloning repo and install
-        continue-on-error: true
+
+      - name: Clone Private Repo and Install Dependencies
         run: |
-          git clone https://${{ secrets.TOKEN }}@github.com/Nksama/dynastypostbot pbot && cd pbot && pip install --upgrade pip && pip install -r requirements.txt
-          pwd
-      - name: Running
+          git clone https://${{ secrets.TOKEN }}@github.com/Nksama/dynastypostbot pbot
+          cd pbot
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run the Bot
         timeout-minutes: 359
-        continue-on-error: true
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
